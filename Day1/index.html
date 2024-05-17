@@ -1,0 +1,40 @@
+<!-- learning DOM manipulation] -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #button{
+            width : 100px;
+            height: 30px;
+            border: 1 solid;
+            border-radius: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="button-clicker">
+        <button id="button">click me</button>
+    </div>
+
+    <script>
+        let ele = document.getElementById('button');
+        count = 0;
+        text = ["clicked", "Hello world"]
+        ele.addEventListener('click', () => {
+           
+           ele.innerHTML = text[count] || '';
+           ele.style.backgroundColor = count === 2 ? 'red' : '';
+           if(count === 3){
+            ele.remove();
+           }
+           count ++;
+        })
+        
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    #inputvalues {
+      display: flex;
+      flex-direction: column;
+      width: 150px;
+    }
+  </style>
+  <body>
+    <div id="inputvalues"></div>
+  </body>
+  <script>
+    const InputItems = [
+      {
+        id: 1,
+        title: "phone number",
+        type: "text",
+      },
+      {
+        id: 2,
+        title: "Name",
+        type: "text",
+      },
+      {
+        id: 3,
+        title: "Age",
+        type: "texts",
+      },
+      {
+        id: 4,
+        title: "gender",
+        type: "texts",
+      },
+    ];
+
+    const div = document.getElementById("inputvalues");
+
+    const values = InputItems.forEach((values, index) => {
+      const label = document.createElement("label");
+      const input = document.createElement("input");
+
+      label.innerHTML = values.title;
+      div.appendChild(label);
+      div.appendChild(input);
+
+      const dbutton = document.createElement("Button");
+
+      dbutton.addEventListener("click", () => {
+        div.removeChild(label);
+        div.removeChild(input);
+        div.removeChild(dbutton);
+      });
+      dbutton.textContent = "discard";
+      div.appendChild(dbutton);
+    });
+  </script>
+</html>

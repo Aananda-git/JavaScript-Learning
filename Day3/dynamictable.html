@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    
+  <label for="rowCount">Enter a number:</label>
+  <input type="number" id="rowCount" name="rowCount">
+  <button onclick="createTable()">Create Table</button>
+
+  <div id="tableContainer"></div>
+</body>
+
+<script>
+  function createTable() {
+    var rowCountInput = document.getElementById("rowCount");
+    var rowCount = parseInt(rowCountInput.value);
+    
+    if (rowCount < 1) {
+        alert("Please enter a valid number greater than 0.");
+        return;
+    }
+
+    var numRows = Math.ceil(rowCount / 3); 
+
+    var table = document.createElement("table");
+    var tbody = document.createElement("tbody");
+
+    var num = 1;
+    for (var i = 0; i < numRows; i++) {
+        var row = document.createElement("tr");
+        for (var j = 0; j < 3; j++) {
+            var cell = document.createElement("td");
+            if (num <= rowCount) {
+                cell.textContent = num;
+            }
+            num++;
+            row.appendChild(cell);
+        }
+        tbody.appendChild(row);
+    }
+
+    table.appendChild(tbody);
+
+    var tableContainer = document.getElementById("tableContainer");
+    tableContainer.innerHTML = ''; 
+    tableContainer.appendChild(table);
+}
+</script>
+</html>
